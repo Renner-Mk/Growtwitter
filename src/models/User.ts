@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import { Tweet } from './Tweet'
 import { tweetsDatabse } from '../database/tweetsDatabase'
+import { accountDatabse } from '../database/AccountDatabase'
 
 export class User {
     private readonly id: string = uuidv4()
@@ -12,7 +13,14 @@ export class User {
         private _username: string,
         private _email: string,
         private _password: string
-    ) {}
+    ) {
+
+        if (accountDatabse.find(tweetAccount => tweetAccount.username === this._username)) {
+            throw new Error("This username already exist!")
+        }
+
+        accountDatabse.push(this)
+    }
 
     get username(): string{
         return this._username

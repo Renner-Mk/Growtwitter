@@ -2,16 +2,15 @@ import { Tweet, Type } from './src/models/Tweet'
 import { User } from './src/models/User'
 
 const user1 = new User('Patrick', "Renner", 'Teste@test.com', 'as3')
+// const user5 = new User('Patrick', "Renner", 'Teste@test.com', 'as3')
 const user2 = new User('Arnaldo', "Naldinho", 'Teste@test.com', 'as3')
 const user3 = new User('Joana', "Jo", 'Teste@test.com', 'as3')
 
-// user1.showFollowing()
 
 user1.follow(user2)
 user2.follow(user3)
 user3.follow(user1)
 
-// user1.showFollowing()
 
 const tweet1 = new Tweet('Belo dia para passear', Type.Tweet, user1)
 const tweet4 = new Tweet('Partiu praia', Type.Tweet, user2)
